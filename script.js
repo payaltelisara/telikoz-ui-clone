@@ -93,6 +93,32 @@ function setSubmitting(isSubmitting) {
   submitBtn.classList.toggle("is-loading", isSubmitting);
 }
 
+function initCursorGlow() {
+  const glow = document.getElementById("cursorGlow");
+  if (!glow) {
+    return;
+  }
+
+  const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+  if (isCoarsePointer) {
+    glow.style.display = "none";
+    return;
+  }
+
+  window.addEventListener("pointermove", (event) => {
+    glow.style.left = `${event.clientX}px`;
+    glow.style.top = `${event.clientY}px`;
+  });
+
+  window.addEventListener("pointerdown", () => {
+    glow.style.opacity = "0.95";
+  });
+
+  window.addEventListener("pointerup", () => {
+    glow.style.opacity = "0.7";
+  });
+}
+
 function openMap() {
   window.open("https://www.google.com/maps?q=13.1100259,80.2409052", "_blank", "noopener,noreferrer");
 }
@@ -210,6 +236,8 @@ function init() {
   if (mapBtn) {
     mapBtn.addEventListener("click", openMap);
   }
+
+  initCursorGlow();
 }
 
 document.addEventListener("DOMContentLoaded", init);
