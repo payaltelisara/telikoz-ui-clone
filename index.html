@@ -91,7 +91,13 @@
       <a class="logo" href="#" aria-label="Telikoz Academy">
         <img src="assets/logo.png" alt="Telikoz Academy Cyber Security Course Chennai">
       </a>
-      <a href="#consultation-form" class="header-cta">Talk to an Advisor</a>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+          <span class="theme-dot" aria-hidden="true"></span>
+          <span id="themeToggleText">Light Mode</span>
+        </button>
+        <a href="#consultation-form" class="header-cta">Talk to an Advisor</a>
+      </div>
     </div>
   </header>
 
@@ -126,7 +132,7 @@
         </ul>
       </div>
 
-      <aside class="lead-card reveal delay-1" id="consultation-form" aria-label="Lead form">
+      <aside class="lead-card liquid-glass reveal delay-1" id="consultation-form" aria-label="Lead form">
         <h2>Get Free Consultation</h2>
         <p class="lead-note">Share your details and our team will contact you shortly.</p>
         <p class="sr-only" id="formStatus" aria-live="polite"></p>
@@ -168,7 +174,7 @@
         <h2 id="location-title">Visit Our Location</h2>
       </div>
 
-      <div class="map-shell">
+      <div class="map-shell liquid-glass">
         <iframe
           title="Telikoz Academy location"
           src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d971.4572145725724!2d80.240905269535!3d13.110025999201172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDA2JzM2LjEiTiA4MMKwMTQnMjkuNiJF!5e0!3m2!1sen!2sin!4v1773826770208!5m2!1sen!2sin"
@@ -176,6 +182,25 @@
           allowfullscreen>
         </iframe>
         <button class="map-btn" id="mapBtn" type="button" aria-label="Open Telikoz location in Google Maps">Open in Google Maps</button>
+      </div>
+    </section>
+
+    <section class="faq-corner reveal delay-2" aria-labelledby="faq-title">
+      <div class="faq-card liquid-glass">
+        <p class="eyebrow">Quick FAQ</p>
+        <h2 id="faq-title">Need Clarification?</h2>
+        <details>
+          <summary>Do you provide placement support?</summary>
+          <p>Yes. We provide guided resume support, interview prep, and placement assistance.</p>
+        </details>
+        <details>
+          <summary>Are weekend classes available?</summary>
+          <p>Yes. Weekend batches are available for students and working professionals.</p>
+        </details>
+        <details>
+          <summary>Is this beginner friendly?</summary>
+          <p>Yes. The course starts from fundamentals and progresses to hands-on advanced labs.</p>
+        </details>
       </div>
     </section>
   </main>

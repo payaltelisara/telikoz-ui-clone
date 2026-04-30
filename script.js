@@ -5,6 +5,7 @@ const FIELD_LABELS = {
   email: "Email Address",
   phone: "Phone Number"
 };
+const THEME_STORAGE_KEY = "telikoz-theme";
 
 function getUTMParams() {
   const params = new URLSearchParams(window.location.search);
@@ -91,6 +92,41 @@ function setSubmitting(isSubmitting) {
 
   submitBtn.disabled = isSubmitting;
   submitBtn.classList.toggle("is-loading", isSubmitting);
+}
+
+function applyTheme(theme) {
+  const nextTheme = theme === "light" ? "light" : "dark";
+  document.body.setAttribute("data-theme", nextTheme);
+
+  const toggle = document.getElementById("themeToggle");
+  const toggleText = document.getElementById("themeToggleText");
+
+  if (toggle) {
+    toggle.setAttribute("aria-pressed", String(nextTheme === "light"));
+  }
+  if (toggleText) {
+    toggleText.textContent = nextTheme === "light" ? "Dark Mode" : "Light Mode";
+  }
+}
+
+function initThemeToggle() {
+  const toggle = document.getElementById("themeToggle");
+  if (!toggle) {
+    return;
+  }
+
+  const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  const preferredLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+  const initialTheme = storedTheme || (preferredLight ? "light" : "dark");
+
+  applyTheme(initialTheme);
+
+  toggle.addEventListener("click", () => {
+    const currentTheme = document.body.getAttribute("data-theme") || "dark";
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+  });
 }
 
 function initCursorGlow() {
@@ -237,6 +273,7 @@ function init() {
     mapBtn.addEventListener("click", openMap);
   }
 
+  initThemeToggle();
   initCursorGlow();
 }
 
