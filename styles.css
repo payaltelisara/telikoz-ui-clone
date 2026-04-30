@@ -566,16 +566,27 @@ input[aria-invalid="true"] {
 }
 
 .faq-corner {
+  position: relative;
+  left: calc(50% - 50vw);
+  width: 100vw;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 8px 0 80px;
 }
 
 .faq-cluster {
-  width: min(820px, 100%);
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  padding: 0 max(14px, 2vw);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-content: center;
+  align-items: stretch;
   gap: 14px;
+}
+
+.faq-cluster > * {
+  min-height: 300px;
 }
 
 .join-card {
@@ -583,13 +594,13 @@ input[aria-invalid="true"] {
   border: 1px solid var(--line);
   background: linear-gradient(160deg, rgba(11, 22, 44, 0.78), rgba(8, 16, 32, 0.86));
   box-shadow: var(--shadow-neon), 0 18px 42px rgba(0, 0, 0, 0.36);
-  padding: 18px 18px 14px;
+  padding: 22px 22px 18px;
 }
 
 .join-card h2 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-family: "Orbitron", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.24rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: var(--cyan-bright);
@@ -604,12 +615,12 @@ input[aria-invalid="true"] {
 }
 
 .join-points li {
-  padding: 10px 10px 10px 12px;
+  padding: 12px 12px 12px 14px;
   border-radius: 12px;
   border: 1px solid rgba(108, 242, 255, 0.16);
   background: rgba(9, 19, 36, 0.56);
   color: #cbe9ff;
-  font-size: 1rem;
+  font-size: 1.04rem;
 }
 
 .join-points strong {
@@ -622,13 +633,13 @@ input[aria-invalid="true"] {
   border: 1px solid var(--line);
   background: linear-gradient(160deg, rgba(11, 22, 44, 0.78), rgba(8, 16, 32, 0.86));
   box-shadow: var(--shadow-neon), 0 18px 42px rgba(0, 0, 0, 0.36);
-  padding: 18px 18px 14px;
+  padding: 22px 22px 18px;
 }
 
 .faq-card h2 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-family: "Orbitron", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.24rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: var(--cyan-bright);
@@ -636,13 +647,14 @@ input[aria-invalid="true"] {
 
 .faq-card details {
   border-top: 1px solid rgba(108, 242, 255, 0.16);
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 .faq-card summary {
   cursor: pointer;
   list-style: none;
   font-weight: 700;
+  font-size: 1.06rem;
   color: #d8f2ff;
 }
 
@@ -661,9 +673,9 @@ input[aria-invalid="true"] {
 }
 
 .faq-card p {
-  margin: 8px 0 0;
+  margin: 10px 0 0;
   color: var(--muted);
-  font-size: 0.98rem;
+  font-size: 1.02rem;
 }
 
 .sr-only {
@@ -740,6 +752,8 @@ input[aria-invalid="true"] {
 
   .faq-corner {
     justify-content: stretch;
+    left: 0;
+    width: 100%;
   }
 
   .faq-card {
@@ -748,6 +762,11 @@ input[aria-invalid="true"] {
 
   .faq-cluster {
     grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .faq-cluster > * {
+    min-height: auto;
   }
 }
 
