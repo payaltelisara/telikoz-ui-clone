@@ -94,9 +94,18 @@ function setSubmitting(isSubmitting) {
   submitBtn.classList.toggle("is-loading", isSubmitting);
 }
 
+function updateThemeColorMeta(theme) {
+  const themeMeta = document.getElementById("themeColorMeta");
+  if (!themeMeta) {
+    return;
+  }
+  themeMeta.setAttribute("content", theme === "light" ? "#eaf7ff" : "#060a12");
+}
+
 function applyTheme(theme) {
   const nextTheme = theme === "light" ? "light" : "dark";
   document.body.setAttribute("data-theme", nextTheme);
+  updateThemeColorMeta(nextTheme);
 
   const toggle = document.getElementById("themeToggle");
   const toggleText = document.getElementById("themeToggleText");

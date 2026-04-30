@@ -45,6 +45,8 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
   position: relative;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .skip-link {
@@ -792,6 +794,54 @@ input[aria-invalid="true"] {
   .hero {
     gap: 26px;
     padding: 42px 0 36px;
+  }
+
+  body:not([data-theme="light"]) .hero-subtitle,
+  body[data-theme="dark"] .hero-subtitle {
+    color: #b9d9ec;
+  }
+
+  body:not([data-theme="light"]) .lead-note,
+  body[data-theme="dark"] .lead-note,
+  body:not([data-theme="light"]) .field-hint,
+  body[data-theme="dark"] .field-hint,
+  body:not([data-theme="light"]) .trust-note,
+  body[data-theme="dark"] .trust-note,
+  body:not([data-theme="light"]) .faq-card p,
+  body[data-theme="dark"] .faq-card p,
+  body:not([data-theme="light"]) .site-footer,
+  body[data-theme="dark"] .site-footer {
+    color: #a8c8dd;
+  }
+
+  body:not([data-theme="light"]) .faq-card summary,
+  body[data-theme="dark"] .faq-card summary,
+  body:not([data-theme="light"]) .join-points li,
+  body[data-theme="dark"] .join-points li {
+    color: #e6f7ff;
+  }
+
+  body:not([data-theme="light"]) label,
+  body[data-theme="dark"] label {
+    color: #dcf3ff;
+  }
+
+  body:not([data-theme="light"]) input,
+  body[data-theme="dark"] input {
+    color: #effaff;
+    border-color: rgba(134, 220, 255, 0.5);
+    background: rgba(5, 14, 30, 0.9);
+  }
+
+  body:not([data-theme="light"]) .feature-card,
+  body[data-theme="dark"] .feature-card {
+    color: #e6f6ff;
+    border-color: rgba(131, 217, 255, 0.28);
+  }
+
+  body:not([data-theme="light"]) .site-header,
+  body[data-theme="dark"] .site-header {
+    background: rgba(7, 14, 28, 0.88);
   }
 
   .lead-card {
